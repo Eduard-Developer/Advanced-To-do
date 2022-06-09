@@ -1,6 +1,7 @@
 from code import interact
 import time
 import sys
+import string
 Todolist = ["."]
 
 
@@ -12,8 +13,9 @@ num = 3
 integer = 1
 
 
+alpthabet = string.ascii_lowercase
 
-
+print("the alphabet is working and it is: ", str(alpthabet))
 
 if input("Type Hey to start \n") == "Hey":
     print("Hey Mate! Welcome to super LISTY list")
@@ -48,3 +50,4 @@ if input("Do you want to set up a Password (Y/N)") == "Y":
 else:
     print("await: no")
 func()
+
