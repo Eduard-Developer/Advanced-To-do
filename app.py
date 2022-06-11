@@ -16,6 +16,8 @@ integer = 1
 alpthabet = string.ascii_lowercase
 
 print("the alphabet is working and it is: ", str(alpthabet))
+if str(alpthabet[1]) == "a":
+    print("the first letter is a so it should be fine")
 
 if input("Type Hey to start \n") == "Hey":
     print("Hey Mate! Welcome to super LISTY list")
