@@ -35,11 +35,10 @@ if input("Do you want to Add Tasks to your List? (Y) ") == "Y":
     print("Add Your Task HERE: ")
     _tasksTodo = input()
 
-_tasksTodo = ""
 
 
 def func():
-    outfile = open("app.txt", "a")
+    outfile = open("app.txt", "w")
 
     outfile.write(_tasksTodo + "\n")
 
@@ -55,12 +54,19 @@ def rotor(text, shift, alphabets):
         return alphabet[shift:] + alphabet [:shift]
 
     shifted_Alphabets = tuple(map(shift_Alphabet, alphabets))
-    final_alphabet = "".join() 
+    final_alphabet = "".join(alphabets)
+    final_shifted_alphabet = "".join(shifted_Alphabets)
+    table = str.maketrans(final_alphabet, final_shifted_alphabet) 
+    return text.translate(table)
 
-time.sleep(0.5)
-if input("Do you want to set up a Password (Y/N)") == "Y":
-    print("await: yes")
-else:
-    print("await: no")
+testtext = "hello this will be encrypted"
+print(rotor(testtext, 7, [string.ascii_lowercase, string.ascii_uppercase]))
+
+#time.sleep(0.5)
+#if input("Do you want to set up a Password (Y/N)") == "Y":
+    #print("await: yes")
+           # else:
+           # print("await: no")
+    
 func()
 
