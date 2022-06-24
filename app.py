@@ -7,7 +7,8 @@ Todolist = ["."]
 
 
 salute = False
-_tasksTodo = ""
+_tasksTodo = "blabla"
+actual_tasksTodo = "blabla"
 
 num = 3
 integer = 1
@@ -34,16 +35,7 @@ while integer < num:
 if input("Do you want to Add Tasks to your List? (Y) ") == "Y":       
     print("Add Your Task HERE: ")
     _tasksTodo = input()
-
-
-
-def func():
-    outfile = open("app.txt", "w")
-
-    outfile.write(_tasksTodo + "\n")
-
-    outfile.close()
-
+    _tasksTodo = actual_tasksTodo
 def storepassword():
     print("TODO")
 
@@ -59,14 +51,16 @@ def rotor(text, shift, alphabets):
     table = str.maketrans(final_alphabet, final_shifted_alphabet) 
     return text.translate(table)
 
-testtext = "hello this will be encrypted"
-print(rotor(testtext, 7, [string.ascii_lowercase, string.ascii_uppercase]))
+actual_tasksTodo = rotor(_tasksTodo, 7, [string.ascii_lowercase, string.ascii_uppercase])
+print(rotor(_tasksTodo, 7, [string.ascii_lowercase, string.ascii_uppercase]))
 
-#time.sleep(0.5)
-#if input("Do you want to set up a Password (Y/N)") == "Y":
-    #print("await: yes")
-           # else:
-           # print("await: no")
-    
-func()
+def func():
+    outfile = open("app.txt", "a")
+
+    outfile.write(actual_tasksTodo + "\n")
+
+    outfile.close()
+
+if __name__ == "__main__" and actual_tasksTodo != "": 
+    func()
 
