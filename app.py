@@ -7,18 +7,12 @@ Todolist = ["."]
 
 
 salute = False
-_tasksTodo = "blabla"
-actual_tasksTodo = "blabla"
+_tasksTodo = "test"
 
 num = 3
 integer = 1
 
 
-donotuse_alpthabet = string.ascii_lowercase
-
-print("the alphabet is working and it is: ", str(donotuse_alpthabet))
-if str(donotuse_alpthabet[1]) == "a":
-    print("the first letter is a so it should be fine")
 
 if input("Type Hey to start \n") == "Hey":
     print("Hey Mate! Welcome to super LISTY list")
@@ -35,7 +29,6 @@ while integer < num:
 if input("Do you want to Add Tasks to your List? (Y) ") == "Y":       
     print("Add Your Task HERE: ")
     _tasksTodo = input()
-    _tasksTodo = actual_tasksTodo
 def storepassword():
     print("TODO")
 
@@ -50,17 +43,30 @@ def rotor(text, shift, alphabets):
     final_shifted_alphabet = "".join(shifted_Alphabets)
     table = str.maketrans(final_alphabet, final_shifted_alphabet) 
     return text.translate(table)
-
-actual_tasksTodo = rotor(_tasksTodo, 7, [string.ascii_lowercase, string.ascii_uppercase])
-print(rotor(_tasksTodo, 7, [string.ascii_lowercase, string.ascii_uppercase]))
+    
+# If i want to invert it, I will just subtract (26 - shift)
+_tasksTodo = rotor(_tasksTodo, 7, [string.ascii_lowercase, string.ascii_uppercase])
+print(_tasksTodo)
 
 def func():
     outfile = open("app.txt", "a")
 
-    outfile.write(actual_tasksTodo + "\n")
+    outfile.write(_tasksTodo + "\n")
 
     outfile.close()
 
-if __name__ == "__main__" and actual_tasksTodo != "": 
-    func()
+    if input("To see the To do list press (T)") == "T":
+        outfile = open("app.txt", "r")
 
+
+        content = outfile.read()
+
+        print(rotor(content, 19 , [string.ascii_lowercase, string.ascii_uppercase]))
+
+    else:
+        sys.exit
+            
+
+
+if __name__ == "__main__" and _tasksTodo != "": 
+    func()
